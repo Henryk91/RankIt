@@ -47,7 +47,7 @@
 }
 @media only screen and (min-width: 600px) {
 	.bottom-nav{
-		width: 60vw;
+		/* width: 60vw; */
 	}
 }
 .options-wrapper{
@@ -59,7 +59,7 @@
     align-items: center;
 }
 .picker-option{
-    background: rgb(47, 79, 79);
+    background: rgb(43, 130, 130);
     margin: 2px;
     display: flex;
     width: 100%;
@@ -71,7 +71,7 @@
     padding: 6px;
 }
 .picker-option:hover{
-    color: rgba(47, 79, 79, 0.6);
+    color: rgba(43, 130, 130, 0.6);
 }
 .picker-text{
     color: white;
@@ -92,4 +92,18 @@
 }
 .complete-button{
     width: 50%;
+}
+.ranking-number{
+    border: 1px solid rgb(227, 177, 60);
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 100px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.ranking-leader{
+    border: 1px solid red;
+    padding: 5px 10px 5px 10px;
+    margin-left: 0px;
 }

@@ -41,9 +41,13 @@ function Item() {
     setShowAddNote(!showAddNote);
     setUpdatingNote(item);
   };
+  const itemCount = folderItems?.length
+  const showRankItButton = itemCount > 1
 
-  const showRankItButton = folderItems?.length > 1
-
+  const rankCounter = (rank: number) => {
+    const className = ('ranking-number ') + (rank === 1 ? 'ranking-leader': '')
+    return (<p className={className}>{rank}</p>)
+  }
   return (
     <div className="page-wrapper">
       <div className="folder-nav">
@@ -96,8 +100,9 @@ function Item() {
 
         <div className="note-list">
           {folderItems.length > 0 &&
-            [...folderItems].map((item) => (
+            [...folderItems].map((item, index) => (
               <div className="item-set" key={item.id + item.parentId} onClick={() => updateItem(item)}>
+                {rankCounter(itemCount - index)}
                 <p className="note-item" style={{ marginRight: 12 }}>
                   {item.content}
                 </p>
