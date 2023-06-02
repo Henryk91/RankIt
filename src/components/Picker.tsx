@@ -9,7 +9,7 @@ function Picker({ toggleHide }: { toggleHide: () => void }) {
   const [pickIndex, setPickIndex] = useState(0);
   const [pickRightCount, setPickRightCount] = useState(0);
   const [showShowRankComplete, setShowRankComplete] = useState(false);
-  const items = allItems.filter((item) => item.parentId === selectedFolder.id);
+  const items = allItems.filter((item) => item.parentId === selectedFolder?.id);
 
   const leftItem = items[pickIndex];
   const rightItem = items[pickIndex + 1];

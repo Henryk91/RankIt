@@ -17,7 +17,7 @@ function Item() {
   if (!selectedFolder || !selectedFolder.id) {
     return <></>;
   }
-  const folderItems = items.filter((item) => item.parentId === selectedFolder.id);
+  const folderItems = items.filter((item) => item.parentId === selectedFolder?.id);
 
   const addNewItem = (localItem: string, parentId: string) => {
     if (updatingNote && updatingNote.id !== undefined) {
@@ -57,7 +57,7 @@ function Item() {
         />
       </div>
       <section className="section">
-        <h1 className="title" onClick={() => promoteItem(selectedFolder)}>
+        <h1 className="title" onClick={() => {if(selectedFolder) promoteItem(selectedFolder)}}>
           {selectedFolder.name}
         </h1>
 
@@ -77,9 +77,9 @@ function Item() {
                 id="done-button"
                 value="Done"
                 onClick={() => {
-                  addNewItem(localItem, selectedFolder.id);
-                  setLocalItem("");
-                  setShowAddNote(!showAddNote);
+                    if(selectedFolder)addNewItem(localItem, selectedFolder.id)
+                    setLocalItem("");
+                    setShowAddNote(!showAddNote);
                 }}
               />
             </div>
