@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/RankIt/static/css/main.52b4216b.css",
+    "main.js": "/RankIt/static/js/main.7d9fb447.js",
+    "static/js/787.45e7c969.chunk.js": "/RankIt/static/js/787.45e7c969.chunk.js",
+    "index.html": "/RankIt/index.html",
+    "main.52b4216b.css.map": "/RankIt/static/css/main.52b4216b.css.map",
+    "main.7d9fb447.js.map": "/RankIt/static/js/main.7d9fb447.js.map",
+    "787.45e7c969.chunk.js.map": "/RankIt/static/js/787.45e7c969.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.52b4216b.css",
+    "static/js/main.7d9fb447.js"
+  ]
+}
