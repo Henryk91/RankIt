@@ -26,13 +26,15 @@ function Folder() {
     <div className="page-wrapper">
       <div className="folder-nav">
         <input
+          className="text-black"
           type="button"
           id="edit-nav-button"
-          value=""
+          value={!showEditButton ? "Edit" : "Done"}
           onClick={() => {
             console.log("Set edit");
           }}
         />
+        <h1>RankIt!</h1>
         <input
           type="button"
           id="edit-nav-button"
