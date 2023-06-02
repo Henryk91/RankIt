@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createContainer } from "unstated-next";
 import { Folder } from "../types/folder";
 
@@ -9,7 +9,8 @@ const insert = (arr: Folder[], index: number, newItem: Folder) => [
 ];
 const randomId = () => Math.floor(Math.random() * Date.now()).toString(16)
 
-function useFolder(initialState = []) {
+const saved = localStorage.getItem('folders')
+function useFolder(initialState = saved? JSON.parse(saved): []) {
   let [items, setItems] = useState<Folder[]>(initialState);
   let addItem = (_item: string) => {
     if (_item === "") return;
@@ -32,6 +33,11 @@ function useFolder(initialState = []) {
     const result = insert(newItem, itemIndex - 1, _item);
     setItems(result);
   };
+
+  useEffect(() => {
+    localStorage.setItem('folders', JSON.stringify(items));
+}, [items])
+
   return { items, addItem, deleteItem, promoteItem, getNextItem };
 }
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createContainer } from "unstated-next";
 import { NoteItem } from "../types/item";
 
@@ -10,7 +10,8 @@ const insert = (arr: NoteItem[], index: number, newItem: NoteItem) => [
 
 const randomId = () => Math.floor(Math.random() * Date.now()).toString(16)
 
-function useItem(initialState = []) {
+const saved = localStorage.getItem('items')
+function useItem(initialState = saved? JSON.parse(saved): []) {
   let [items, setItem] = useState<NoteItem[]>(initialState);
   let addItem = (_item: string, _parentId: string) => {
     if (_item === "") return;
@@ -39,6 +40,10 @@ function useItem(initialState = []) {
     const result = insert(newItem, itemIndex - 1, _item);
     setItem(result);
   };
+
+  useEffect(() => {
+    localStorage.setItem('items', JSON.stringify(items));
+}, [items])
   return { items, addItem, updateNoteItem, deleteItem, promoteItem, getNextItem };
 }
 

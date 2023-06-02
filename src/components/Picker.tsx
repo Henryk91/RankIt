@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import "./item.css";
 import useItem from "../store/item";
+import useSelectedFolder from "../store/selectedFolder";
 
 function Picker({ toggleHide }: { toggleHide: () => void }) {
-  const { items, promoteItem } = useItem.useContainer();
+  const { items: allItems, promoteItem } = useItem.useContainer();
+  let { selectedFolder } = useSelectedFolder.useContainer();
   const [pickIndex, setPickIndex] = useState(0);
   const [pickRightCount, setPickRightCount] = useState(0);
   const [showShowRankComplete, setShowRankComplete] = useState(false);
+  const items = allItems.filter((item) => item.parentId === selectedFolder.id);
 
   const leftItem = items[pickIndex];
   const rightItem = items[pickIndex + 1];

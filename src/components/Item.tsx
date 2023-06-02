@@ -17,7 +17,7 @@ function Item() {
   if (!selectedFolder || !selectedFolder.id) {
     return <></>;
   }
-  let folderItems = items.filter((item) => item.parentId === selectedFolder.id);
+  const folderItems = items.filter((item) => item.parentId === selectedFolder.id);
 
   const addNewItem = (localItem: string, parentId: string) => {
     if (updatingNote && updatingNote.id !== undefined) {
@@ -86,7 +86,7 @@ function Item() {
             <textarea
               autoFocus
               id="new-note-item"
-              placeholder="New Note"
+              placeholder="New Item"
               value={localItem}
               onChange={(e) => setLocalItem(e.target.value)}
             />
@@ -96,13 +96,13 @@ function Item() {
 
         <div className="note-list">
           {folderItems.length > 0 &&
-            folderItems.map((item) => (
+            [...folderItems].map((item) => (
               <div className="item-set" key={item.id + item.parentId} onClick={() => updateItem(item)}>
                 <p className="note-item" style={{ marginRight: 12 }}>
                   {item.content}
                 </p>
               </div>
-            ))}
+            )).reverse()}
         </div>
       </section>
       <footer className="folder-nav">
