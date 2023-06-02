@@ -8,11 +8,13 @@ const insert = (arr: NoteItem[], index: number, newItem: NoteItem) => [
   ...arr.slice(index),
 ];
 
+const randomId = () => Math.floor(Math.random() * Date.now()).toString(16)
+
 function useItem(initialState = []) {
   let [items, setItem] = useState<NoteItem[]>(initialState);
   let addItem = (_item: string, _parentId: string) => {
     if (_item === "") return;
-    let newItem: NoteItem = { id: items.length, content: _item, parentId: _parentId };
+    let newItem: NoteItem = { id: randomId(), content: _item, parentId: _parentId };
     setItem([...items, newItem]);
   };
   let updateNoteItem = (_item: NoteItem) => {

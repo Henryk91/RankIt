@@ -7,12 +7,13 @@ const insert = (arr: Folder[], index: number, newItem: Folder) => [
   newItem,
   ...arr.slice(index),
 ];
+const randomId = () => Math.floor(Math.random() * Date.now()).toString(16)
 
 function useFolder(initialState = []) {
   let [items, setItems] = useState<Folder[]>(initialState);
   let addItem = (_item: string) => {
     if (_item === "") return;
-    let newItem: Folder = { id: items.length.toString(), name: _item };
+    let newItem: Folder = { id: randomId(), name: _item };
     setItems([...items, newItem]);
   };
   let deleteItem = (_item: Folder) => {
