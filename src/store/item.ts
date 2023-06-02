@@ -28,6 +28,10 @@ function useItem(initialState = saved? JSON.parse(saved): []) {
     let newItems: NoteItem[] = items.filter((item) => item.id !== _item.id);
     setItem(newItems);
   };
+  let deleteItemsByParentId = (_parentId: string) => {
+    let newItems: NoteItem[] = items.filter((item) => item.parentId !== _parentId);
+    setItem(newItems);
+  };
   let promoteItem = (_item: NoteItem) => {
     const itemIndex = items.findIndex((i) => i === _item);
     let newItem: NoteItem[] = items.filter((item) => item !== _item);
@@ -44,7 +48,7 @@ function useItem(initialState = saved? JSON.parse(saved): []) {
   useEffect(() => {
     localStorage.setItem('items', JSON.stringify(items));
 }, [items])
-  return { items, addItem, updateNoteItem, deleteItem, promoteItem, getNextItem };
+  return { items, addItem, updateNoteItem, deleteItem, promoteItem, getNextItem, deleteItemsByParentId };
 }
 
 export default createContainer(useItem);

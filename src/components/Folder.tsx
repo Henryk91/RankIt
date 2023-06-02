@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import "./folder.css";
 import useFolder from "../store/folder";
 import useSelectedFolder from "../store/selectedFolder";
+import { Folder as FolderItem } from "../types/folder";
+import useItem from "../store/item";
 
 function Folder() {
   let { items, addItem, deleteItem } = useFolder.useContainer();
+  const { deleteItemsByParentId } = useItem.useContainer();
   let { selectedFolder, selectFolder } = useSelectedFolder.useContainer();
   const [localItem, setLocalItem] = useState("");
   const [showAddFolder, setShowAddFolder] = useState(false);
@@ -13,6 +16,11 @@ function Folder() {
 
   if (selectedFolder && selectedFolder.id !== undefined) {
     return <></>;
+  }
+
+  const deleteButtonClick = (item: FolderItem) => {
+    deleteItemsByParentId(item.id)
+    deleteItem(item)
   }
   return (
     <div className="page-wrapper">
@@ -47,7 +55,7 @@ function Folder() {
                   </div>
                   {showEditButton && (
                     <>
-                      <button className="deleteButton" onClick={() => deleteItem(item)}>
+                      <button className="deleteButton" onClick={() => deleteButtonClick(item)}>
                         Delete
                       </button>
                     </>
