@@ -4,6 +4,7 @@ import useUser from "./user";
 import useFolder from "./folder";
 import useItem from "./item";
 import useSelectedFolder from "./selectedFolder";
+import useRankItem from "./rankItem";
 
 const Provider = (props) => {
 	return (
@@ -11,7 +12,9 @@ const Provider = (props) => {
 			<useItem.Provider> 
 				<useUser.Provider>
                     <useSelectedFolder.Provider>
+                    <useRankItem.Provider>
                         {props.children}
+                    </useRankItem.Provider>
                     </useSelectedFolder.Provider>
                 </useUser.Provider>
 			</useItem.Provider>

@@ -35,7 +35,7 @@ function Folder() {
         />
       </div>
       <section className="section">
-        <h1 className="title">Folder Items</h1>
+        <h1 className="title">Groups</h1>
         <div className="items-wrap">
           <ol className="items">
             {items.length > 0 ? (
@@ -109,7 +109,6 @@ function Folder() {
                 id="done-button"
                 value="Done"
                 onClick={() => {
-                  addItem(localItem);
                   setLocalItem("");
                   setShowAddRankPage(!showAddRankPage);
                 }}
@@ -127,14 +126,13 @@ function Folder() {
         )}
       </section>
       <footer className="folder-nav">
-        <div id="add-folder-button" onClick={() => setShowAddFolder(!showAddFolder)}>
+        <div className="nav-button" onClick={() => setShowAddFolder(!showAddFolder)}>
           <i className="far fa-folder" aria-hidden="true"></i>
           <span>+</span>
         </div>
-        <div id="add-folder-button" onClick={() => setShowAddFolder(!showAddFolder)}>
-          <i className="far fa-check" aria-hidden="true"></i>
+        {/* <div className="nav-button" onClick={() => setShowAddRankPage(!showAddRankPage)}>
           <span>RankIt</span>
-        </div>
+        </div> */}
       </footer>
     </div>
   );

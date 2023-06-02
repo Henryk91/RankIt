@@ -50,3 +50,43 @@
 		width: 60vw;
 	}
 }
+.options-wrapper{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100%;
+    align-items: center;
+}
+.picker-option{
+    background: rgb(47, 79, 79);
+    margin: 2px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.picker-option:hover{
+    color: rgba(47, 79, 79, 0.6);
+}
+.picker-text{
+    color: white;
+}
+.rank-complete-notice{
+    display: block;
+    position: absolute;
+    z-index: 100;
+    background: black;
+    align-self: center;
+    text-align: center;
+    padding: 15px;
+    border-radius: 3px;
+}
+.complete-notice-button-wrapper{
+    justify-content: center;
+    display: flex;
+}
+.complete-button{
+    width: 50%;
+}

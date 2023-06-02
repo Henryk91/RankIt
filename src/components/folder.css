@@ -30,7 +30,7 @@ body {
   overflow-x: auto;
 }
 
-#add-folder-button{
+.nav-button{
     font-size: 25px;
     justify-content: space-evenly;
     display: flex;
@@ -40,7 +40,7 @@ body {
     margin: 20px;
     color: rgb(227, 177, 60);
 }
-#add-folder-button:hover{
+.nav-button:hover{
     color: rgba(227, 177, 60, 0.6);
 }
 
@@ -106,7 +106,7 @@ body {
     display: flex;
 }
 
-.folder-nav > input[type="button"]{
+.folder-nav > input[type="button"], .yellow-button{
 	background: none;
     border: none;
     margin: 20px;
@@ -114,7 +114,7 @@ body {
 	color: rgb(227, 177, 60);
 	font-weight: bold;
 }
-.folder-nav > input[type="button"]:hover{
+.folder-nav > input[type="button"]:hover, .yellow-button:hover{
 	color: rgba(227, 177, 60, 0.6);
 }
 .folder-nav > p {
